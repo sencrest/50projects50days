@@ -36,6 +36,7 @@ generateEl.addEventListener('click', () => {
     const hasUpper = uppercaseEl.checked
     const hasNumber = numbersEl.checked
     const hasSymbol = symbolsEl.checked
+    console.log('length:', length)
     console.log('hasLower:', hasLower)
 
     resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length)
@@ -46,6 +47,23 @@ function generatePassword(lower, upper, number, symbol, length) {
     const typesCount = lower + upper + number + symbol
 
     const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0])
+
+    // typesArr 值= [
+    //     {
+    //         "lower": true
+    //     },
+    //     {
+    //         "upper": true
+    //     },
+    //     {
+    //         "number": true
+    //     },
+    //     {
+    //         "symbol": true
+    //     }
+    // ]
+
+    // typesCount = 勾选的个数
 
     if (typesCount === 0) {
         return ''
